@@ -4,6 +4,21 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const HOST = "localhost";
+const DATABASE = "piratera";
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://' + HOST + '/' + DATABASE, {
+    //useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Lỗi kết nối CSDL'));
+db.once('open', function() {
+    console.log('Kết nối DB thành công!');
+});
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var signatureRouter = require('./routes/signature');

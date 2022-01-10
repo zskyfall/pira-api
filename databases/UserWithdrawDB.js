@@ -1,5 +1,5 @@
 //var mongoose = require('mongoose');
-var UserWithdraw = require('../models/UserWithdraw');
+var UserWithdraw = require('../models/User_withdraw');
 
 module.exports = {
     //return single Request by Id

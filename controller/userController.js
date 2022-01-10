@@ -43,7 +43,7 @@ let postWithdrawRequest = async function(req, res) {
     };
 
     UserWithdrawDB.addNewRequest(newWithdrawRequest, (error) => {
-        if (e) {
+        if (error) {
             console.log("ERROR While add new request: " + error);
             res.json({ success: false, error: error });
         } else {
